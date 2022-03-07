@@ -5,7 +5,7 @@ class CampsiteInfo extends Component {
 
     renderCampsite(campsite){
         return (
-            <div className='cold-md-5 m-1'>
+            <div className='col-md-5 m-1'>
                 <Card>
                     <CardImg top src={campsite.image} alt={campsite.name} />
                     <CardBody>
@@ -37,14 +37,18 @@ class CampsiteInfo extends Component {
     }
 
     render() {
-        const {campsite = {} } = this.props;
+        const {campsite} = this.props;
         const {comments = [] } = campsite || {};
         if(campsite){
             return (
-            <div className='row'>
-                {this.renderCampsite(campsite)}
-                {this.renderComments(comments)}
-            </div>);
+            <div className='container'>
+                <div className='row'>
+                    {this.renderCampsite(campsite)}
+                    {this.renderComments(comments)}
+                </div>
+            </div>
+                );
+           
         } else {
             return <div></div>;
         }
